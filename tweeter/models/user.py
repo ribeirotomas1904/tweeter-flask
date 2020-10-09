@@ -15,7 +15,7 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(300), nullable=False)
     first_name = db.Column(db.String(100), nullable=False)
     last_name = db.Column(db.String(100), nullable=False)
-    bio = db.Column(db.String(100), nullable=True)
+    bio = db.Column(db.String(300), nullable=True)
     picture_url = db.Column(db.String(100), unique=True, nullable=True)
     banner_url = db.Column(db.String(100), unique=True, nullable=True)
     created_at = db.Column(db.DateTime, nullable=False)
