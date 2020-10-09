@@ -1,0 +1,38 @@
+{% extends 'layouts/main.html' %}
+
+{% block content %}
+    <img class="user-banner" src="https://placekitten.com/1441/200" alt="user banner">
+    <div class="page-delimiter">
+        <div class="paper paper-user-info">
+            <div class="user-picture-wrapper">
+                <img class="user-picture" src="{{ user.picture or url_for('static', filename='images/user-default-picture.png') }}" alt="user picture">
+            </div>
+            <div class="user-info">
+                <div class="user-name-wrapper">
+                    <div class="user-name">
+                        {{ user.first_name }} {{ user.last_name }}
+                    </div>
+                    <div class="user-follows">
+                        <div>
+                            <span>42K</span>
+                            <div>Following</div>
+                        </div>
+                        <div>
+                            <span>42K</span>
+                            <div>Followers</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-bio">
+                    {{ user.bio or '' }}
+                </div>
+            </div>
+            <a class="button button-follow" href="">
+                <i class="material-icons person-add">person_add</i>
+                <span>
+                    Follow
+                </span>
+            </a>
+        </div>
+    </div>
+{% endblock %}

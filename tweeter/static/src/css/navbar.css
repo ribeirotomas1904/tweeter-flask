@@ -1,0 +1,110 @@
+.navbar-wrapper {
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 0 20px;
+    position: fixed;
+    top: 0;
+}
+
+.navbar {
+    width: 100%;
+    max-width: 1300px;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.navbar-pages {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.navbar-pages > a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: -0.035em;
+    color: var(--gray-4);
+    height: 70px;
+    padding: 0 20px;
+    border-bottom: 3px solid rgba(0, 0, 0, 0);
+}
+
+.navbar-pages > a:hover {
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.navbar-pages > a:not(:last-child) {
+    margin-right: 40px;
+}
+
+
+
+.navbar-visitor > a {
+    text-decoration: none;
+    color: var(--gray-4);
+}
+
+.navbar-visitor > a:hover {
+    color: var(--primary-color);
+}
+
+.navbar-visitor > a:not(:last-child) {
+    margin-right: 40px;
+}
+
+.navbar-user {
+    display: flex;
+    align-items: center;
+}
+
+.current-user-picture-wrapper {
+    margin-right: 10px;
+}
+.current-user-picture {
+    width: 32px;
+    height: 32px;
+    border-radius: 7px;
+}
+
+.current-user-name-wrapper {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.current-user-name {
+    font-family: 'Noto Sans', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: -0.035em;
+    margin-right: 5px;
+    color: var(--gray-5);
+}
+
+@media screen and (max-width: 800px) {
+    .navbar-pages, .current-user-name-wrapper {
+        display: none;
+    }
+
+    .current-user-picture-wrapper {
+        margin: 0;
+    }
+}

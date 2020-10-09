@@ -1,0 +1,41 @@
+{% extends 'layouts/base.html' %}
+
+{% block body %}
+    <div class="auth-background">
+        <img src="{{ url_for('static', filename='images/tweeter.svg') }}" alt="tweeter logo" class="logo">
+        <div class="paper paper-auth">        
+            <h1 class="title">
+    
+                {% block form_title %}
+                {% endblock %}
+    
+            </h1>
+            <form method="post" class="form">
+                {{ form.hidden_tag() }}
+                {% for field in form if field.type not in ['HiddenField', 'CSRFTokenField'] %}
+                    <div class="input-wrapper">
+                        {{ field.label(class='label') }}
+                        {{ field(class='input') }}
+                        {% if field.errors %}
+                            <div class="error-wrapper">
+                                {% for error in field.errors %}
+                                    <span class="error">{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+    
+                <button type="submit" class="button">
+    
+                    {% block submit_text %}
+                    {% endblock %}
+    
+                </button>
+            </form>
+        </div>
+    
+        {% block link %}
+        {% endblock %}
+    </div>
+{% endblock %}

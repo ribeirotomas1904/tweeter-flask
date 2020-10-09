@@ -1,0 +1,48 @@
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    margin-bottom: 2px;
+    color: var(--gray-5)
+}
+
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-wrapper:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.input {
+    background: var(--gray-1);
+    border: 1px solid var(--gray-2);
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 10.5px 12px;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: -0.035em;
+    color: var(--gray-3);
+}
+
+.error-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+}
+
+.error {
+    color: var(--error-color);
+    font-size: 14px;
+}
+
+.error:not(:last-child) {
+    margin-bottom: 1px;
+}

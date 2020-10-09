@@ -1,0 +1,17 @@
+{% extends 'layouts/auth.html' %}
+
+{% block page_title %}
+    Login - {{ super() }}
+{% endblock %}
+
+{% block form_title %}
+    Login
+{% endblock %}
+
+{% block submit_text %}
+    Login
+{% endblock %}
+
+{% block link %}
+    <p class="link">Don't have an account? <a href="{{ url_for('auth.register') }}">Sign up</a></p>
+{% endblock %}

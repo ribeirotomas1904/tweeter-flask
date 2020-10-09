@@ -1,0 +1,52 @@
+{% extends 'layouts/base.html' %}
+
+{% block body %}
+    <div class="main-background">
+        <div class="navbar-wrapper">
+            <nav class="navbar">
+                <img src="{{ url_for('static', filename='images/tweeter.svg') }}" alt="tweeter logo">
+                {% if current_user.is_authenticated %}
+                    <div class="navbar-pages">
+                        <a href="">Home</a>
+                        <a href="">Explore</a>
+                        <a href="">Bookmarks</a>
+                    </div>
+                    <div class="navbar-user">
+                        <a class="current-user-picture-wrapper" href="{{ url_for('users.show', username=current_user.username) }}">
+                            <img class="current-user-picture" src="{{ current_user.picture or url_for('static', filename='images/user-default-picture.png') }}" alt="current user picture">
+                        </a>
+                        <div class="current-user-name-wrapper">
+                            <div class="current-user-name">{{ current_user.first_name }} {{ current_user.last_name }}</div>
+                            <i class="material-icons expand-more">expand_more</i>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="navbar-visitor">
+                        <a href="{{ url_for('auth.login') }}">Login</a>
+                        <a href="{{ url_for('auth.register') }}">Register</a>
+                    </div>
+                {% endif %}
+            </nav>
+        </div>
+        {% block content %}
+        {% endblock %}
+        <footer class="page-footer">
+            <span>© 2020 Nathanael Ribeiro, devchallenges.io</span>
+        </footer>
+        {% if current_user.is_authenticated %}
+            <div class="bottom-nav-wrapper">
+                <nav class="bottom-nav">
+                    <a href="">
+                        <i class="material-icons home-icon">home</i>
+                    </a>
+                    <a href="">
+                        <i class="material-icons bookmark-icon">bookmark</i>
+                    </a>
+                    <a href="">
+                        <i class="material-icons explore-icon">explore</i>
+                    </a>
+                </nav>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

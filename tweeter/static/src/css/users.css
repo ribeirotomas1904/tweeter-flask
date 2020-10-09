@@ -1,0 +1,133 @@
+.paper-user-info {
+    position: relative;
+    bottom: 60px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.user-banner {
+    width: 100%;
+    height: auto;
+    min-height: 240px;
+    object-fit: cover;
+}
+
+.user-picture {
+    width: 152px;
+    height: 152px;
+    border-radius: 8px;
+}
+.user-picture-wrapper {
+    position: relative;
+    bottom: 80px;
+    background-color: white;
+    padding: 4px;
+    border-radius: 8px;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 20px;
+}
+
+.user-name-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.user-name {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: -0.035em;
+    color: var(--gray-5);
+    margin-right: 25px;
+}
+
+.user-follows {
+    display: flex;
+    align-items: center;
+}
+
+.user-follows > div {
+    display: flex;
+    align-items: flex-end;
+}
+
+.user-follows > div:not(:last-child) {
+    margin-right: 20px;
+}
+
+.user-follows > div > div {
+    color: var(--gray-5);
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.035em;
+}
+
+.user-follows > div > span {
+    color: black;
+    margin-right: 3px;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: -0.035em;
+    position: relative;
+    top: 1px;
+}
+
+.user-bio {
+    color: var(--gray-5);
+    font-family: 'Noto Sans', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: -0.035em;
+}
+
+@media screen and (max-width: 800px) {
+    .paper-user-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .user-info {
+        align-items: center;
+        position: relative;
+        bottom: 70px;
+    }
+
+    .paper-user-info > .button-follow {
+        position: relative;
+        bottom: 70px;
+    }
+
+    .user-name-wrapper {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .user-name {
+        margin: 0;
+        text-align: center;
+    }
+
+    .user-bio {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+}

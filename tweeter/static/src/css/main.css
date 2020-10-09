@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.page-background {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--page-background);
+}
+
+.main-background {
+    padding-top: 70px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.auth-background {
+    padding: 20px 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* .page-footer {
+    position: absolute;
+    bottom: 20px;
+} */
+
+.paper {
+    border-radius: 12px;
+    box-shadow: 0px 2px 4px var(--shadow-color);
+    background-color: white;
+    padding: 20px;
+    width: 100%;
+}
+
+.paper-auth {
+    max-width: 350px;
+}
+
+.title {
+    margin: 0;
+    margin-bottom: 15px;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.logo {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.link {
+    margin-top: 20px;
+}
+
+.button {
+    background-color: var(--primary-color);
+    border-radius: 4px;
+    color: white;
+    border: none;
+    padding: 16px 0;
+    font-style: normal;
+    font-weight: 500;
+    margin-top: 10px;
+    line-height: 16px;
+    letter-spacing: -0.035em;
+    cursor: pointer;
+}
+
+.button-follow {
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 5px 0px;
+    margin: 0;
+    width: 100%;
+    max-width: 90px;
+}
+
+.page-delimiter {
+    width: 100%;
+    max-width: 1080px;
+    padding: 0 10px;
+}
+
+.expand-more {
+    width: 24px;
+    height: 24px;
+}
+
+i.person-add {
+    font-size: 20px;
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+}
+
+.bottom-nav-wrapper {
+    display: none;
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    height: 65px;
+    width: 100%;
+    z-index: 10;
+}
+
+.bottom-nav {
+    display: flex;
+    width: 100%;
+}
+
+.bottom-nav > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-decoration: none;
+}
+
+.bottom-nav > a:hover {
+    background-color: var(--gray-2);
+}
+
+.bottom-nav > a > i {
+    color: var(--gray-4);
+    font-size: 30px;
+}
+
+@media screen and (max-width: 800px) {
+    .page-footer {
+        display: none;
+    }
+
+    .bottom-nav-wrapper {
+        display: flex;
+    }
+
+    .main-background {
+        padding-bottom: 65px;
+    }
+}

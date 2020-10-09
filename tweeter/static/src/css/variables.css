@@ -1,0 +1,18 @@
+:root {
+    --page-background: #FAFAFB;
+
+    --primary-color: #2F80ED;
+
+    --gray-1: #FAFAFA;
+    --gray-2: #F2F2F2;
+    --gray-3: #BDBDBD;
+    --gray-4: #828282;
+    --gray-5: #4F4F4F;
+
+    --success-color: #27AE60;
+    --info-color: #2D9CDB;
+    --danger-color: #EB5757;
+    
+    --error-color: red;
+    --shadow-color: rgba(0, 0, 0, 0.05);
+}
