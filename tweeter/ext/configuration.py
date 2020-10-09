@@ -1,5 +1,8 @@
 import os
+from dotenv import load_dotenv
 
+
+load_dotenv()
 
 def init_app(app):
     app.config['SECRET_KEY'] = os.environ['SECRET_KEY']
