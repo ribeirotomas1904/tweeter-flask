@@ -8,6 +8,7 @@
     padding: 0 20px;
     position: fixed;
     top: 0;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05);
 }
 
 .navbar {
@@ -45,16 +46,23 @@
     border-bottom: 3px solid rgba(0, 0, 0, 0);
 }
 
-.navbar-pages > a:hover {
+.navbar-pages > a:not(.active):hover {
+    color: var(--gray-5);
+}
+
+.navbar-pages > a:not(:last-child) {
+    margin-right: 20px;
+}
+
+.navbar-pages > .active {
     color: var(--primary-color);
     border-bottom: 3px solid var(--primary-color);
 }
 
-.navbar-pages > a:not(:last-child) {
-    margin-right: 40px;
+.navbar-visitor {
+    position: relative;
+    top: 2px;
 }
-
-
 
 .navbar-visitor > a {
     text-decoration: none;
@@ -66,7 +74,7 @@
 }
 
 .navbar-visitor > a:not(:last-child) {
-    margin-right: 40px;
+    margin-right: 20px;
 }
 
 .navbar-user {
@@ -87,6 +95,8 @@
     display: flex;
     align-items: center;
     cursor: pointer;
+    position: relative;
+    bottom: 2px;
 }
 .current-user-name {
     font-family: 'Noto Sans', sans-serif;

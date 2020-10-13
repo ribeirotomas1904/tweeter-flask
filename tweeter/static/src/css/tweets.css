@@ -1,0 +1,89 @@
+.input-tweet-wrapper {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.input-tweet {
+    margin-left: 10px;
+    width: 100%;
+    resize: none;
+    height: 70px;
+    /* border: 1px solid var(--gray-3);
+    border-radius: 8px; */
+    border: none;
+    margin: 0px 0px 0px 10px;
+    /* padding-top: 10px; */
+}
+
+.input-tweet:placeholder-shown {
+    position: relative;
+    top: 7.5px;
+}
+
+.button-tweet-wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button-tweet {
+    max-width: 75px;
+    padding: 8px 0;
+}
+
+.create-tweet-paper {
+    padding: 15px;
+}
+
+.tweet-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.tweet-header > div {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    bottom: 2.5px;
+}
+
+.tweet-author-name {
+    color: black;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.035em;
+}
+
+.tweet-date {
+    font-family: 'Noto Sans', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.035em;
+    color: var(--gray-3);
+}
+
+.tweet-text {
+    font-family: 'Noto Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: -0.035em;
+    color: var(--gray-5);
+    word-break: break-all;
+}
+
+.tweet-author-picture-wrapper {
+    margin-right: 10px;
+}
+.tweet-author-picture {
+    width: 32px;
+    height: 32px;
+    border-radius: 7px;
+}

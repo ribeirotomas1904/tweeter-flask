@@ -1,0 +1,44 @@
+{% extends 'layouts/main.html' %}
+
+{% set active_page = url_for('tweets.feed') %}
+
+{% block content %}
+    <div class="page-delimiter main-delimiter feed-delimiter">
+        <div class="col main-col">
+            <div class="paper create-tweet-paper">
+                <div class="paper-header">
+                    Tweet something
+                </div>
+                <form method="post">
+                    {{ form.hidden_tag() }}
+                    <div class="input-tweet-wrapper">
+                        <img
+                            class="current-user-picture"
+                            src="{{ current_user.picture or url_for('static', filename='images/user-default-picture.png') }}"
+                            alt="current user picture"
+                        >
+                        {{ form.text(class='input-tweet', placeholder='What\'s happening?') }}
+                    </div>
+                    {% if form.text.errors %}
+                        <div class="error-wrapper">
+                            {% for error in form.text.errors %}
+                                <span class="error">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    <div class="button-tweet-wrapper">
+                        <button class="button button-follow button-tweet" type="submit">
+                            Tweet
+                        </button>
+                    </div>
+                </form>
+            </div >
+            {{ list_tweets(tweets) }}
+        </div>
+        <!-- <div class="col side-col">
+            <div class="paper">
+                
+            </div>
+        </div> -->
+    </div>
+{% endblock %}

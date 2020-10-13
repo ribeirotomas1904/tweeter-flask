@@ -1,5 +1,43 @@
 {% extends 'layouts/base.html' %}
 
+{% set navigation_bar = [
+    (url_for('tweets.feed'), 'Home'),
+    (url_for('tweets.explore'), 'Explore'),
+    ('', 'Bookmarks'),
+] %}
+
+{% set active_page = active_page %}
+
+{% macro list_tweets(tweets) %}
+    {% for tweet in tweets %}
+        <div class="paper">
+            <div class="tweet-header">
+                <a
+                    class="tweet-author-picture-wrapper"
+                    href="{{ url_for('users.show', username=tweet.user.username) }}"
+                >
+                    <img
+                        class="tweet-author-picture"
+                        src="{{ tweet.user.picture or url_for('static', filename='images/user-default-picture.png') }}"
+                        alt="tweet author picture"
+                    >
+                </a>
+                <div>
+                    <span class="tweet-author-name">
+                        {{ tweet.user.first_name }} {{ tweet.user.last_name }}
+                    </span>
+                    <span class="tweet-date">
+                        {{ tweet.created_at.strftime('%d %B at %H:%M') }}
+                    </span>
+                </div>
+            </div>
+            <div class="tweet-text">
+                {{ tweet.text }}
+            </div>
+        </div>
+    {% endfor %}
+{% endmacro %}
+
 {% block body %}
     <div class="main-background">
         <div class="navbar-wrapper">
@@ -7,9 +45,16 @@
                 <img src="{{ url_for('static', filename='images/tweeter.svg') }}" alt="tweeter logo">
                 {% if current_user.is_authenticated %}
                     <div class="navbar-pages">
-                        <a href="">Home</a>
-                        <a href="">Explore</a>
-                        <a href="">Bookmarks</a>
+                        {% for link, name in navigation_bar %}
+                            <a
+                                {% if active_page == link %}
+                                    class="active"
+                                {% endif %}
+                                href="{{ link }}"
+                            >
+                            {{ name }}
+                            </a>
+                        {% endfor %}
                     </div>
                     <div class="navbar-user">
                         <a class="current-user-picture-wrapper" href="{{ url_for('users.show', username=current_user.username) }}">
@@ -36,14 +81,14 @@
         {% if current_user.is_authenticated %}
             <div class="bottom-nav-wrapper">
                 <nav class="bottom-nav">
-                    <a href="">
+                    <a href="{{ url_for('tweets.feed') }}">
                         <i class="material-icons home-icon">home</i>
+                    </a>
+                    <a href="{{ url_for('tweets.explore') }}">
+                        <i class="material-icons explore-icon">explore</i>
                     </a>
                     <a href="">
                         <i class="material-icons bookmark-icon">bookmark</i>
-                    </a>
-                    <a href="">
-                        <i class="material-icons explore-icon">explore</i>
                     </a>
                 </nav>
             </div>

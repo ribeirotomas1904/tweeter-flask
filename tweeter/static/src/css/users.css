@@ -3,6 +3,7 @@
     bottom: 60px;
     display: flex;
     align-items: flex-start;
+    flex-direction: row;
 }
 
 .user-banner {
@@ -97,6 +98,11 @@
     letter-spacing: -0.035em;
 }
 
+.user-profile-delimiter {
+    position: relative;
+    bottom: 60px;
+}
+
 @media screen and (max-width: 800px) {
     .paper-user-info {
         flex-direction: column;
@@ -130,4 +136,18 @@
         text-align: center;
     }
 
+    .user-profile-delimiter {
+        flex-direction: column;
+        padding-bottom: 0;
+    }
+
+    .user-profile-delimiter > .side-col {
+        margin: 0;
+        max-width: 100%;
+        margin-bottom: 25px;
+    }
+
+    .feed-delimiter > .side-col {
+        display: none;
+    }
 }

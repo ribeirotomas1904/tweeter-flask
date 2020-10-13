@@ -35,4 +35,14 @@
             </a>
         </div>
     </div>
+    <div class="page-delimiter main-delimiter user-profile-delimiter">
+        <!-- <div class="col side-col">
+            <div class="paper">
+                filters
+            </div>
+        </div> -->
+        <div class="col main-col">
+            {{ list_tweets(user.tweets) }}
+        </div>
+    </div>
 {% endblock %}
