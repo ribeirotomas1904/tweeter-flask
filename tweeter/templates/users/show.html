@@ -27,11 +27,19 @@
                     {{ user.bio or '' }}
                 </div>
             </div>
-            <a class="button button-follow" href="">
-                <i class="material-icons person-add">person_add</i>
-                <span>
-                    Follow
-                </span>
+            <a class="button button-follow"
+                {% if current_user.username == user.username %}
+                    href="">
+
+                    Edit Profile
+                {% else %}
+                    href="{{ url_for('users.follow', username=user.username) }}">
+
+                    <i class="material-icons person-add">person_add</i>
+                    <span>
+                        Follow
+                    </span>
+                {% endif %}
             </a>
         </div>
     </div>

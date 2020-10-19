@@ -19,8 +19,13 @@ def feed():
 
         return redirect(url_for('tweets.feed'))
 
-    return render_template('tweets/feed.html', form=form, tweets=reversed(current_user.tweets))
+    return render_template('tweets/feed.html', form=form, tweets=current_user.tweets)
 
 @bp.route('/explore', methods=['GET', 'POST'])
 def explore():
-    return 'explore'
+    if current_user.is_authenticated:
+        tweets = db.session.query(Tweet).filter(Tweet.user_id != current_user.id).all()
+    else:
+        tweets = Tweet.query.all()
+
+    return render_template('tweets/explore.html', tweets=tweets)

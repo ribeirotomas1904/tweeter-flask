@@ -7,6 +7,11 @@ from tweeter.models.tweet import Tweet
 
 ph = PasswordHasher()
 
+followers = db.Table('followers',
+    db.Column('follower_id', db.Integer, db.ForeignKey('users.id')),
+    db.Column('followed_id', db.Integer, db.ForeignKey('users.id')),
+)
+
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
@@ -20,6 +25,11 @@ class User(db.Model, UserMixin):
     picture_url = db.Column(db.String(), unique=True, nullable=True)
     banner_url = db.Column(db.String(), unique=True, nullable=True)
     tweets = db.relationship('Tweet', order_by='Tweet.created_at', backref='user', lazy=True)
+    followed = db.relationship(
+        'User', secondary=followers,
+        primaryjoin=(followers.c.follower_id == id),
+        secondaryjoin=(followers.c.followed_id == id),
+        backref=db.backref('followers', lazy='dynamic'), lazy='dynamic')
     created_at = db.Column(db.DateTime, nullable=False)
     updated_at = db.Column(db.DateTime, nullable=False)
 
@@ -42,3 +52,26 @@ class User(db.Model, UserMixin):
         self.banner_url = None
         self.created_at = datetime.utcnow()
         self.updated_at = datetime.utcnow()
+
+    
+    def is_following(self, user):
+        return self.followed.filter(followers.c.followed_id == user.id).count() > 0
+
+    def follow(self, user):
+        if not self.is_following(user):
+            self.followed.append(user)
+
+    def unfollow(self, user):
+        if self.is_following(user):
+            self.followed.remove(user)
+
+    def followed_tweets(self):
+        followerd = Tweet.query.join(
+            followers, (followers.c.followed_id == Tweet.user_id)
+        ).filter(
+            followers.c.follower_id == self.id
+        ).order_by(
+            Tweet.created_at.desc()
+        )
+        onw = self.tweets
+        return followed.union(onw).order_by(Tweet.created_at.desc())

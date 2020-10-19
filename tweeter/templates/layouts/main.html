@@ -9,7 +9,7 @@
 {% set active_page = active_page %}
 
 {% macro list_tweets(tweets) %}
-    {% for tweet in tweets %}
+    {% for tweet in tweets|reverse %}
         <div class="paper">
             <div class="tweet-header">
                 <a
@@ -23,9 +23,9 @@
                     >
                 </a>
                 <div>
-                    <span class="tweet-author-name">
+                    <a class="tweet-author-name" href="{{ url_for('users.show', username=tweet.user.username) }}">
                         {{ tweet.user.first_name }} {{ tweet.user.last_name }}
-                    </span>
+                    </a>
                     <span class="tweet-date">
                         {{ tweet.created_at.strftime('%d %B at %H:%M') }}
                     </span>

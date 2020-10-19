@@ -1,0 +1,16 @@
+{% extends 'layouts/main.html' %}
+
+{% set active_page = url_for('tweets.explore') %}
+
+{% block content %}
+    <div class="page-delimiter main-delimiter feed-delimiter">
+        <div class="col main-col">
+            {{ list_tweets(tweets) }}
+        </div>
+        <!-- <div class="col side-col">
+            <div class="paper">
+                
+            </div>
+        </div> -->
+    </div>
+{% endblock %}
